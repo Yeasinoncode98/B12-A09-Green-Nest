@@ -31,17 +31,53 @@
 
 // export default PlantCard;
 
+// import React from "react";
+// import { Link } from "react-router-dom";
+
+// export default function PlantCard({ plant }) {
+//   return (
+//     <div className="card bg-white shadow rounded-lg overflow-hidden">
+//       <figure className="h-48 flex items-center justify-center bg-slate-50">
+//         <img
+//           src={plant.image}
+//           alt={plant.plantName}
+//           className="object-contain h-400"
+//         />
+//       </figure>
+//       <div className="p-4">
+//         <h3 className="font-semibold">{plant.plantName}</h3>
+//         <div className="text-sm text-slate-500">
+//           {plant.category} • {plant.careLevel}
+//         </div>
+//         <div className="mt-2 flex items-center justify-between">
+//           <div>
+//             <span className="font-bold">${plant.price}</span>
+//             <div className="text-xs text-slate-500">Rating: {plant.rating}</div>
+//           </div>
+//           <Link
+//             to={`/plants/${plant.plantId}`}
+//             className="btn btn-sm btn-outline"
+//           >
+//             View Details
+//           </Link>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+//............
 import React from "react";
 import { Link } from "react-router-dom";
 
 export default function PlantCard({ plant }) {
   return (
     <div className="card bg-white shadow rounded-lg overflow-hidden">
-      <figure className="h-48 flex items-center justify-center bg-slate-50">
+      <figure className="w-full h-[200px] bg-slate-50">
         <img
           src={plant.image}
           alt={plant.plantName}
-          className="object-contain h-40"
+          className="w-full h-full object-cover"
         />
       </figure>
       <div className="p-4">

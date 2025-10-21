@@ -205,6 +205,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import BannerImage from "../assets/banner.avif";
 
 export default function Home() {
   const [plants, setPlants] = useState([]);
@@ -223,19 +224,22 @@ export default function Home() {
 
   const experts = [
     {
-      name: "Amina Khan",
+      name: "David Gomej",
       specialty: "Succulents",
-      image: "https://i.postimg.cc/3x4X0QmY/snake-plant.png",
+      image:
+        "https://i.ibb.co.com/1HXZ96c/premium-photo-1672239496290-5061cfee7ebb.jpg",
     },
     {
       name: "Rafi Ahmed",
       specialty: "Foliage Care",
-      image: "https://i.postimg.cc/5yq3Ff0L/zz-plant.png",
+      image:
+        "https://i.ibb.co.com/tPQZ7Rch/istockphoto-146879255-1024x1024.jpg",
     },
     {
-      name: "Lina Gomez",
+      name: "Jonathan Rocky",
       specialty: "Decor & Styling",
-      image: "https://i.postimg.cc/c4Yv1r9M/fiddle-fig.png",
+      image:
+        "https://i.ibb.co.com/mV5YB1V8/photo-1519058082700-08a0b56da9b4.jpg",
     },
   ];
 
@@ -254,14 +258,14 @@ export default function Home() {
           transition={{ duration: 0.8 }}
           className="space-y-4"
         >
-          <h1 className="text-4xl md:text-5xl font-extrabold text-green-700 leading-tight">
+          <h1 className="text-4xl text-center md:text-5xl font-extrabold text-green-700 leading-tight">
             Bring Green Home 🌿
           </h1>
-          <p className="text-slate-600">
+          <p className="text-center md:text-slate-600">
             Explore indoor plants, care tips, and expert consultations to create
             a calm, oxygen-rich home.
           </p>
-          <div className="flex gap-3">
+          <div className="flex justify-center items-center md:flex gap-3">
             <a href="#plants" className="btn btn-primary">
               Browse Plants
             </a>
@@ -275,8 +279,8 @@ export default function Home() {
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1 }}
-          src="https://i.postimg.cc/0yQ7VYxZ/monstera.png"
-          className="w-72 md:w-96 mx-auto drop-shadow-lg"
+          src={BannerImage}
+          className=" w-72 md:w-100 h-100 mx-auto drop-shadow-lg rounded-2xl"
           alt="hero plant"
         />
       </motion.section>
