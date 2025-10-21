@@ -1,81 +1,150 @@
-// // src/Pages/PlantDetails.jsx
 // import React, { useEffect, useState } from "react";
 // import { useParams } from "react-router-dom";
 // import { toast } from "react-toastify";
 
-// const PlantDetails = () => {
+// export default function PlantDetails() {
 //   const { id } = useParams();
 //   const [plant, setPlant] = useState(null);
 //   const [form, setForm] = useState({ name: "", email: "" });
 
 //   useEffect(() => {
 //     fetch("/plants.json")
-//       .then((res) => res.json())
+//       .then((r) => r.json())
 //       .then((data) => {
 //         const found = data.find((p) => String(p.plantId) === String(id));
 //         setPlant(found);
-//       })
-//       .catch(console.error);
+//       });
 //   }, [id]);
 
-//   const handleBook = (e) => {
+//   if (!plant) return <div>Plant not found.</div>;
+
+//   const handleSubmit = (e) => {
 //     e.preventDefault();
-//     // pretend booking, show success
-//     toast.success("Consultation booked successfully!");
+//     toast.success("Consultation booked! Our expert will contact you.");
 //     setForm({ name: "", email: "" });
 //   };
 
-//   if (!plant) return <div className="p-8">Loading plant...</div>;
-
 //   return (
-//     <div className="container mx-auto p-6">
-//       <div className="grid md:grid-cols-2 gap-6">
+//     <div className="grid md:grid-cols-2 gap-6">
+//       <div className="bg-white p-4 rounded shadow">
 //         <img
 //           src={plant.image}
 //           alt={plant.plantName}
-//           className="w-full h-96 object-cover rounded"
+//           className="w-full h-80 object-contain"
 //         />
-//         <div>
-//           <h1 className="text-3xl font-bold">{plant.plantName}</h1>
-//           <p className="text-gray-600 mt-2">{plant.description}</p>
-
-//           <div className="mt-4">
-//             <div className="flex gap-4 items-center">
-//               <div className="text-2xl font-semibold">${plant.price}</div>
-//               <div>⭐ {plant.rating}</div>
-//               <div className="text-sm">Stock: {plant.availableStock}</div>
-//             </div>
-
-//             <div className="mt-6">
-//               <h3 className="font-semibold">Book Consultation</h3>
-//               <form onSubmit={handleBook} className="space-y-3 mt-2">
-//                 <input
-//                   required
-//                   value={form.name}
-//                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-//                   placeholder="Your name"
-//                   className="input input-bordered w-full"
-//                 />
-//                 <input
-//                   required
-//                   value={form.email}
-//                   onChange={(e) => setForm({ ...form, email: e.target.value })}
-//                   placeholder="Your email"
-//                   className="input input-bordered w-full"
-//                 />
-//                 <button type="submit" className="btn btn-primary">
-//                   Book Now
-//                 </button>
-//               </form>
-//             </div>
+//         <h2 className="font-bold text-2xl mt-4">{plant.plantName}</h2>
+//         <p className="text-sm text-slate-600">{plant.description}</p>
+//         <div className="mt-3 text-sm">
+//           <div>
+//             Price: <span className="font-semibold">${plant.price}</span>
 //           </div>
+//           <div>Rating: {plant.rating}</div>
+//           <div>Stock: {plant.availableStock}</div>
 //         </div>
+//       </div>
+
+//       <div className="bg-white p-4 rounded shadow">
+//         <h3 className="font-semibold text-lg mb-2">Book Consultation</h3>
+//         <form onSubmit={handleSubmit} className="space-y-3">
+//           <input
+//             value={form.name}
+//             onChange={(e) => setForm({ ...form, name: e.target.value })}
+//             placeholder="Name"
+//             className="input w-full"
+//             required
+//           />
+//           <input
+//             value={form.email}
+//             onChange={(e) => setForm({ ...form, email: e.target.value })}
+//             placeholder="Email"
+//             className="input w-full"
+//             required
+//           />
+//           <button className="btn btn-primary w-full">Book Now</button>
+//         </form>
 //       </div>
 //     </div>
 //   );
-// };
+// }
 
-// export default PlantDetails;
+//ready
+
+// import React, { useEffect, useState } from "react";
+// import { useParams } from "react-router-dom";
+// import { toast } from "react-toastify";
+
+// export default function PlantDetails() {
+//   const { id } = useParams();
+//   const [plant, setPlant] = useState(null);
+//   const [form, setForm] = useState({ name: "", email: "" });
+
+//   useEffect(() => {
+//     fetch("/plants.json")
+//       .then((r) => r.json())
+//       .then((data) => {
+//         const found = data.find((p) => String(p.plantId) === String(id));
+//         setPlant(found);
+//       });
+//   }, [id]);
+
+//   if (!plant) return <div className="text-center mt-10">Plant not found.</div>;
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     toast.success("Consultation booked! Our expert will contact you.");
+//     setForm({ name: "", email: "" });
+//   };
+
+//   return (
+//     <div className="grid md:grid-cols-2 gap-6 mt-6">
+//       {/* Plant Info */}
+//       <div className="bg-white p-4 rounded shadow">
+//         <div className="w-full h-80 overflow-hidden rounded">
+//           <img
+//             src={plant.image}
+//             alt={plant.plantName}
+//             className="w-full h-full object-cover"
+//           />
+//         </div>
+//         <h2 className="font-bold text-2xl mt-4">{plant.plantName}</h2>
+//         <p className="text-sm text-slate-600 mt-2">{plant.description}</p>
+//         <div className="mt-3 text-sm space-y-1">
+//           <div>
+//             Price: <span className="font-semibold">${plant.price}</span>
+//           </div>
+//           <div>Rating: {plant.rating}</div>
+//           <div>Stock: {plant.availableStock}</div>
+//         </div>
+//       </div>
+
+//       {/* Consultation Form */}
+//       <div className="bg-white p-4 rounded shadow">
+//         <h3 className="font-semibold text-lg mb-2">Book Consultation</h3>
+//         <form onSubmit={handleSubmit} className="space-y-3">
+//           <input
+//             value={form.name}
+//             onChange={(e) => setForm({ ...form, name: e.target.value })}
+//             placeholder="Name"
+//             className="input w-full"
+//             required
+//           />
+//           <input
+//             value={form.email}
+//             onChange={(e) => setForm({ ...form, email: e.target.value })}
+//             placeholder="Email"
+//             className="input w-full"
+//             required
+//           />
+//           <button type="submit" className="btn btn-primary w-full">
+//             Book Now
+//           </button>
+//         </form>
+//       </div>
+//     </div>
+//   );
+// }
+
+//elegenat
 
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -95,7 +164,10 @@ export default function PlantDetails() {
       });
   }, [id]);
 
-  if (!plant) return <div>Plant not found.</div>;
+  if (!plant)
+    return (
+      <div className="text-center mt-10 text-slate-500">Plant not found.</div>
+    );
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -104,42 +176,66 @@ export default function PlantDetails() {
   };
 
   return (
-    <div className="grid md:grid-cols-2 gap-6">
-      <div className="bg-white p-4 rounded shadow">
-        <img
-          src={plant.image}
-          alt={plant.plantName}
-          className="w-full h-80 object-contain"
-        />
-        <h2 className="font-bold text-2xl mt-4">{plant.plantName}</h2>
-        <p className="text-sm text-slate-600">{plant.description}</p>
-        <div className="mt-3 text-sm">
-          <div>
-            Price: <span className="font-semibold">${plant.price}</span>
+    <div className="grid md:grid-cols-2 gap-6 mt-6">
+      {/* Plant Info */}
+      <div className="bg-white p-6 rounded-xl shadow-md">
+        <div className="w-full h-80 overflow-hidden rounded-lg">
+          <img
+            src={plant.image}
+            alt={plant.plantName}
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        <h2 className="text-3xl font-extrabold text-green-700 mt-6">
+          {plant.plantName}
+        </h2>
+
+        <p className="text-base text-slate-600 mt-3 leading-relaxed">
+          {plant.description}
+        </p>
+
+        <div className="mt-5 space-y-2 text-sm text-slate-700">
+          <div className="flex justify-between">
+            <span className="font-medium">💲 Price:</span>
+            <span className="font-semibold text-green-600">${plant.price}</span>
           </div>
-          <div>Rating: {plant.rating}</div>
-          <div>Stock: {plant.availableStock}</div>
+          <div className="flex justify-between">
+            <span className="font-medium">⭐ Rating:</span>
+            <span className="text-yellow-600 font-semibold">
+              {plant.rating} / 5
+            </span>
+          </div>
+          <div className="flex justify-between">
+            <span className="font-medium">📦 Stock Available:</span>
+            <span className="font-semibold">{plant.availableStock}</span>
+          </div>
         </div>
       </div>
 
-      <div className="bg-white p-4 rounded shadow">
-        <h3 className="font-semibold text-lg mb-2">Book Consultation</h3>
-        <form onSubmit={handleSubmit} className="space-y-3">
+      {/* Consultation Form */}
+      <div className="bg-white p-6 rounded-xl shadow-md">
+        <h3 className="text-xl font-semibold text-green-700 mb-4">
+          Book a Free Consultation 🌿
+        </h3>
+        <form onSubmit={handleSubmit} className="space-y-4">
           <input
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
-            placeholder="Name"
-            className="input w-full"
+            placeholder="Your Name"
+            className="input input-bordered w-full"
             required
           />
           <input
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
-            placeholder="Email"
-            className="input w-full"
+            placeholder="Your Email"
+            className="input input-bordered w-full"
             required
           />
-          <button className="btn btn-primary w-full">Book Now</button>
+          <button type="submit" className="btn btn-primary w-full">
+            Book Now
+          </button>
         </form>
       </div>
     </div>
