@@ -393,7 +393,7 @@ export default function Home() {
         viewport={{ once: true }}
         className="mb-8"
       >
-        <h2 className="font-bold text-3xl mb-6 text-green-700 text-center">
+        <h2 className="mt-[60px] font-bold text-3xl mb-6 text-green-700 text-center">
           👩‍🌾 Meet Our Green Experts
         </h2>
         <Swiper
@@ -415,6 +415,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: i * 0.2 }}
                 viewport={{ once: true }}
+                className="mt-[50px]"
               >
                 <ExpertCard expert={ex} />
               </motion.div>
@@ -429,7 +430,7 @@ export default function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="p-6 bg-green-50 rounded-2xl shadow text-center"
+        className="p-6 bg-green-50 rounded-2xl shadow text-center mt-[60px]"
       >
         <h3 className="font-semibold text-2xl text-green-700 mb-2">
           🌼 Plant of the Week: Monstera Deliciosa
