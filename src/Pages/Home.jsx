@@ -297,7 +297,7 @@ export default function Home() {
         viewport={{ once: true }}
         className="mb-8"
       >
-        <h2 className="font-bold text-3xl mb-6 text-green-700 text-center">
+        <h2 className="font-bold text-3xl mb-6 text-green-700 text-center mt-[70px]">
           🌱 Top Rated Indoor Plants
         </h2>
         {/* <Marquee pauseOnHover gradient={false} speed={50}>
@@ -307,7 +307,7 @@ export default function Home() {
           </h2>
         </Marquee> */}
 
-        <Marquee pauseOnHover gradient={false} speed={50}>
+        <Marquee className="mt-[70px]" pauseOnHover gradient={false} speed={50}>
           <h2 className="font-bold text-3xl mb-6 text-blue-400 text-center">
             {"   "} Welcome to Green Nest — your sanctuary for sustainable
             living, vibrant plants, and eco-friendly inspiration!
@@ -350,10 +350,10 @@ export default function Home() {
         viewport={{ once: true }}
         className="mb-8"
       >
-        <h2 className="font-bold text-3xl mb-6 text-green-700 text-center">
+        <h2 className="font-bold text-3xl mb-6 text-green-700 text-center mt-[70px]">
           🌼 Plant Care Tips
         </h2>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 mt-[80px]">
           {[
             {
               title: "Watering",
