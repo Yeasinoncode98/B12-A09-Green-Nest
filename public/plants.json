@@ -1,0 +1,74 @@
+[
+  {
+    "plantId": 1,
+    "plantName": "Snake Plant",
+    "category": "Air Purifier",
+    "price": 18,
+    "rating": 4.8,
+    "availableStock": 10,
+    "careLevel": "Easy",
+    "description": "A hardy plant that purifies indoor air and thrives in low light.",
+    "image": "https://i.postimg.cc/example1.png",
+    "providerName": "UrbanGreen Studio"
+  },
+  {
+    "plantId": 2,
+    "plantName": "Fiddle Leaf Fig",
+    "category": "Statement Tree",
+    "price": 45,
+    "rating": 4.6,
+    "availableStock": 5,
+    "careLevel": "Medium",
+    "description": "Needs bright indirect light and regular watering; dramatic foliage.",
+    "image": "https://i.postimg.cc/example2.png",
+    "providerName": "Leaf & Co."
+  },
+  {
+    "plantId": 3,
+    "plantName": "Pothos",
+    "category": "Trailing",
+    "price": 12,
+    "rating": 4.7,
+    "availableStock": 20,
+    "careLevel": "Easy",
+    "description": "Fast grower and forgiving, great for hanging baskets.",
+    "image": "https://i.postimg.cc/example3.png",
+    "providerName": "GreenThumb Nursery"
+  },
+  {
+    "plantId": 4,
+    "plantName": "ZZ Plant",
+    "category": "Low Light",
+    "price": 22,
+    "rating": 4.5,
+    "availableStock": 8,
+    "careLevel": "Easy",
+    "description": "Very tolerant and low maintenance; glossy leaves.",
+    "image": "https://i.postimg.cc/example4.png",
+    "providerName": "Plantastic"
+  },
+  {
+    "plantId": 5,
+    "plantName": "Calathea",
+    "category": "Ornamental",
+    "price": 25,
+    "rating": 4.3,
+    "availableStock": 6,
+    "careLevel": "Medium",
+    "description": "Beautiful patterned leaves; prefers humidity.",
+    "image": "https://i.postimg.cc/example5.png",
+    "providerName": "HomeGarden Co."
+  },
+  {
+    "plantId": 6,
+    "plantName": "Monstera Deliciosa",
+    "category": "Statement",
+    "price": 55,
+    "rating": 4.9,
+    "availableStock": 3,
+    "careLevel": "Medium",
+    "description": "Iconic split leaves; needs bright, indirect light.",
+    "image": "https://i.postimg.cc/example6.png",
+    "providerName": "UrbanGreen Studio"
+  }
+]
