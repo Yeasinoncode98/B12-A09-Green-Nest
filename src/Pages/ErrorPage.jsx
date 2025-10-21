@@ -1,21 +1,3 @@
-// // src/Pages/ErrorPage.jsx
-// import React from "react";
-// import { Link } from "react-router-dom";
-
-// const ErrorPage = () => (
-//   <div className="min-h-screen flex items-center justify-center">
-//     <div className="text-center p-6">
-//       <h1 className="text-4xl font-bold mb-4">404</h1>
-//       <p className="mb-4">We couldn't find that page.</p>
-//       <Link to="/" className="btn btn-primary">
-//         Go Home
-//       </Link>
-//     </div>
-//   </div>
-// );
-
-// export default ErrorPage;
-
 import React from "react";
 import { Link } from "react-router-dom";
 
