@@ -266,7 +266,6 @@ import { useAuth } from "../context/AuthContext";
 import { toast } from "react-toastify";
 import GreenImage from "../assets/GreenImage.jpg";
 
-
 export default function Navbar() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
@@ -336,7 +335,7 @@ export default function Navbar() {
                   <img
                     src={
                       user.photoURL ||
-                      "https://i.ibb.co.com/1f8LLrRm/premium-photo-1676475964992-6404b8db0b53.jpg"
+                      "https://i.postimg.cc/3x4X0QmY/snake-plant.png"
                     }
                     alt="avatar"
                   />
