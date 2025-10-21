@@ -206,6 +206,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import BannerImage from "../assets/banner.avif";
+import Marquee from "react-fast-marquee";
 
 export default function Home() {
   const [plants, setPlants] = useState([]);
@@ -221,6 +222,8 @@ export default function Home() {
     .slice()
     .sort((a, b) => b.rating - a.rating)
     .slice(0, 6);
+
+  // Expert Json fetching from here
 
   const experts = [
     {
@@ -297,6 +300,19 @@ export default function Home() {
         <h2 className="font-bold text-3xl mb-6 text-green-700 text-center">
           🌱 Top Rated Indoor Plants
         </h2>
+        {/* <Marquee pauseOnHover gradient={false} speed={50}>
+          <h2 className="font-bold text-3xl mb-6 text-green-700 text-center">
+            Welcome to Green Nest — your sanctuary for sustainable living,
+            vibrant plants, and eco-friendly inspiration!
+          </h2>
+        </Marquee> */}
+
+        <Marquee pauseOnHover gradient={false} speed={50}>
+          <h2 className="font-bold text-3xl mb-6 text-blue-400 text-center">
+            {"   "} Welcome to Green Nest — your sanctuary for sustainable
+            living, vibrant plants, and eco-friendly inspiration!
+          </h2>
+        </Marquee>
 
         <Swiper
           modules={[Autoplay, Pagination]}
