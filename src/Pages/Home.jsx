@@ -301,7 +301,7 @@ export default function Home() {
       </motion.section>
 
       {/* ================= PLANT OF THE WEEK ================= */}
-      <motion.section
+      {/* <motion.section
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -315,6 +315,36 @@ export default function Home() {
           A trending statement plant — thrives with bright indirect light and
           moderate watering. Perfect for new plant parents!
         </p>
+      </motion.section> */}
+
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="relative p-8 bg-gradient-to-br from-green-50 via-green-100 to-green-50 rounded-3xl shadow-xl text-center mt-[60px] overflow-hidden group hover:shadow-2xl transition-shadow duration-500"
+      >
+        {/* Decorative background circles */}
+        <div className="absolute -top-10 -left-10 w-32 h-32 bg-green-200 rounded-full blur-3xl opacity-40 group-hover:opacity-60 transition-all duration-700"></div>
+        <div className="absolute -bottom-10 -right-10 w-28 h-28 bg-emerald-200 rounded-full blur-3xl opacity-40 group-hover:opacity-60 transition-all duration-700"></div>
+
+        {/* Plant Info */}
+        <h3 className="font-extrabold text-3xl md:text-4xl text-green-700 mb-3">
+          🌼 Plant of the Week: Monstera Deliciosa
+        </h3>
+        <p className="text-slate-600 text-sm md:text-base mb-6 leading-relaxed max-w-xl mx-auto">
+          A trending statement plant — thrives with bright indirect light and
+          moderate watering. Perfect for new plant parents!
+        </p>
+
+        {/* Learn More Button */}
+        <motion.a
+          whileHover={{ scale: 1.05 }}
+          className="inline-block bg-gradient-to-r from-green-600 to-emerald-500 text-white font-semibold px-6 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-300"
+          href="#plants"
+        >
+          Learn More
+        </motion.a>
       </motion.section>
     </div>
   );
