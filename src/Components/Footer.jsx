@@ -99,24 +99,6 @@ export default function Footer() {
         </div>
 
         {/* Newsletter */}
-        {/* <div className="flex flex-col items-center md:items-start">
-          <form className="w-full max-w-xs">
-            <h6 className="footer-title text-green-700 mb-2">Newsletter</h6>
-            <fieldset className="w-full">
-              <label className="text-sm text-green-900/80">
-                Enter your email address
-              </label>
-              <div className="join mt-1">
-                <input
-                  type="email"
-                  placeholder="username@site.com"
-                  className="input input-bordered join-item w-full"
-                />
-                <button className="btn btn-primary join-item">Subscribe</button>
-              </div>
-            </fieldset>
-          </form>
-        </div> */}
 
         {/* Newsletter */}
         <div className="flex flex-col items-center md:items-start">
