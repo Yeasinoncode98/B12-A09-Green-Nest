@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PlantCard from "../Components/PlantCard";
 import ExpertCard from "../Components/ExpertCard";
-// import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 // 🌀 Swiper Imports
 import { Swiper, SwiperSlide } from "swiper/react";
