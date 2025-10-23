@@ -28,24 +28,60 @@ export default function Home() {
 
   // Expert Json fetching from here
 
+  // const experts = [
+  //   {
+  //     name: "David Gomej",
+  //     specialty: "Succulents",
+  //     image:
+  //       "https://i.ibb.co.com/1HXZ96c/premium-photo-1672239496290-5061cfee7ebb.jpg",
+  //   },
+  //   {
+  //     name: "Rafi Ahmed",
+  //     specialty: "Foliage Care",
+  //     image:
+  //       "https://i.ibb.co.com/tPQZ7Rch/istockphoto-146879255-1024x1024.jpg",
+  //   },
+  //   {
+  //     name: "Jonathan Rocky",
+  //     specialty: "Decor & Styling",
+  //     image:
+  //       "https://i.ibb.co.com/mV5YB1V8/photo-1519058082700-08a0b56da9b4.jpg",
+  //   },
+  // ];
+
   const experts = [
     {
       name: "David Gomej",
-      specialty: "Succulents",
       image:
         "https://i.ibb.co.com/1HXZ96c/premium-photo-1672239496290-5061cfee7ebb.jpg",
+      specialties: [
+        "Expert in Succulent propagation and arrangement",
+        "Specialized in drought-resistant plant care",
+        "Designs minimal indoor succulent gardens",
+        "Provides long-term soil and watering advice",
+      ],
     },
     {
       name: "Rafi Ahmed",
-      specialty: "Foliage Care",
       image:
         "https://i.ibb.co.com/tPQZ7Rch/istockphoto-146879255-1024x1024.jpg",
+      specialties: [
+        "Foliage plant maintenance and rejuvenation",
+        "Expert at pest prevention and eco care",
+        "Creates indoor greenery balance and harmony",
+        "Guides clients on sustainable plant growth",
+      ],
     },
     {
       name: "Jonathan Rocky",
-      specialty: "Decor & Styling",
       image:
         "https://i.ibb.co.com/mV5YB1V8/photo-1519058082700-08a0b56da9b4.jpg",
+      specialties: [
+        "Professional plant decor & interior styling",
+        "Transforms homes with natural aesthetics",
+        "Advises on matching plants with lighting zones",
+        "Creates modern botanical art setups",
+      ],
     },
   ];
 
