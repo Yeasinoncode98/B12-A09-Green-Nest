@@ -150,33 +150,76 @@ export default function Home() {
         <h2 className="font-bold text-3xl mb-6 text-green-700 text-center mt-[70px]">
           🌼 Plant Care Tips
         </h2>
-        <div className="grid md:grid-cols-3 gap-6 mt-[80px]">
+        <div className="grid md:grid-cols-3 gap-8 mt-[80px]">
           {[
             {
               title: "Watering",
+              icon: "💧",
               desc: "Check soil moisture and water only when top 2 inches are dry.",
+              gradient: "from-blue-400 to-cyan-500",
+              points: [
+                "Touch test the soil first",
+                "Water thoroughly until drainage",
+                "Avoid overwatering to prevent root rot",
+              ],
             },
             {
               title: "Light",
+              icon: "☀️",
               desc: "Place bright-loving plants near east or west windows; avoid harsh midday sun.",
+              gradient: "from-yellow-400 to-orange-500",
+              points: [
+                "Rotate plants weekly for even growth",
+                "Use sheer curtains for filtered light",
+                "Watch for leaf burn signs",
+              ],
             },
             {
               title: "Fertilize",
+              icon: "🌱",
               desc: "Use a balanced fertilizer during growing season every 4–6 weeks.",
+              gradient: "from-green-400 to-emerald-500",
+              points: [
+                "Feed during spring & summer",
+                "Dilute to half-strength first",
+                "Skip fertilizing in winter months",
+              ],
             },
           ].map((tip, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="p-6 bg-white rounded-xl shadow hover:shadow-lg transition"
+              className="relative group"
             >
-              <h4 className="font-semibold text-lg text-green-700">
-                {tip.title}
-              </h4>
-              <p className="text-slate-600 text-sm mt-2">{tip.desc}</p>
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${tip.gradient} opacity-10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300`}
+              ></div>
+              <div className="relative p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-green-200">
+                <div
+                  className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br ${tip.gradient} flex items-center justify-center text-3xl shadow-lg transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-300`}
+                >
+                  {tip.icon}
+                </div>
+                <h4 className="font-bold text-xl text-green-700 text-center mb-3">
+                  {tip.title}
+                </h4>
+                <p className="text-slate-600 text-sm text-center mb-4 leading-relaxed">
+                  {tip.desc}
+                </p>
+                <div className="space-y-2 mt-4 pt-4 border-t border-green-100">
+                  {tip.points.map((point, i) => (
+                    <div key={i} className="flex items-start gap-2">
+                      <span className="text-green-500 font-bold mt-0.5">✓</span>
+                      <p className="text-slate-600 text-xs leading-relaxed">
+                        {point}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
