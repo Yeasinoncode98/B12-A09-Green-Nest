@@ -119,7 +119,12 @@ export default function Home() {
           🌱 Top Rated Indoor Plants
         </h2>
 
-        <Marquee className="mt-[70px]" pauseOnHover gradient={false} speed={50}>
+        <Marquee
+          className="mt-[50px] mb-7"
+          pauseOnHover
+          gradient={false}
+          speed={50}
+        >
           <h2 className="font-bold text-3xl mb-6 text-blue-400 text-center">
             {"   "} Welcome to Green Nest — your sanctuary for sustainable
             living, vibrant plants, and eco-friendly inspiration!

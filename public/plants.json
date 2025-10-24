@@ -70,5 +70,77 @@
     "description": "Iconic split leaves; needs bright, indirect light.",
     "image": "https://i.ibb.co.com/B5nvRMsL/photo-1468327768560-75b778cbb551.jpg",
     "providerName": "UrbanGreen Studio"
+  },
+  {
+    "plantId": 7,
+    "plantName": "Aloe Vera",
+    "category": "Medicinal",
+    "price": 22,
+    "rating": 4.6,
+    "availableStock": 15,
+    "careLevel": "Easy",
+    "description": "A soothing plant known for its healing gel and minimal maintenance needs.",
+    "image": "https://i.ibb.co.com/0RHNPTSb/sujay-paul-6-Ilbjj7gv-SU-unsplash.jpg",
+    "providerName": "UrbanGreen Studio"
+  },
+  {
+    "plantId": 8,
+    "plantName": "Money Plant",
+    "category": "Indoor",
+    "price": 14,
+    "rating": 4.7,
+    "availableStock": 20,
+    "careLevel": "Very Easy",
+    "description": "A popular indoor plant believed to bring good luck and positive energy.",
+    "image": "https://i.ibb.co.com/wTSPZw1/vikas-verma-dp-UCl-YYYHEo-unsplash.jpg",
+    "providerName": "GreenNest Nursery"
+  },
+  {
+    "plantId": 9,
+    "plantName": "Peace Lily",
+    "category": "Flowering",
+    "price": 25,
+    "rating": 4.9,
+    "availableStock": 12,
+    "careLevel": "Medium",
+    "description": "A beautiful plant with white blooms that helps purify indoor air.",
+    "image": "https://i.ibb.co.com/JR3WLvsd/ryunosuke-kikuno-c-Fx-UZ7-UAf-c-unsplash.jpg",
+    "providerName": "UrbanGreen Studio"
+  },
+  {
+    "plantId": 10,
+    "plantName": "Bamboo Palm",
+    "category": "Air Purifier",
+    "price": 30,
+    "rating": 4.5,
+    "availableStock": 8,
+    "careLevel": "Medium",
+    "description": "A tropical plant that adds refreshing greenery and improves air quality.",
+    "image": "https://i.ibb.co.com/GfHS19vc/elly-m-e-Lr-JBCyrvc-unsplash.jpg",
+    "providerName": "Leaf & Root Farm"
+  },
+  {
+    "plantId": 11,
+    "plantName": "Jade Plant",
+    "category": "Succulent",
+    "price": 16,
+    "rating": 4.4,
+    "availableStock": 18,
+    "careLevel": "Easy",
+    "description": "A round-leaf succulent symbolizing prosperity and long life.",
+    "image": "https://i.ibb.co.com/SbJkwM6/klara-kulikova-TYQ08big-BYo-unsplash.jpg",
+    "providerName": "GreenNest Nursery"
+  },
+  {
+    "plantId": 12,
+    "plantName": "Lavender",
+    "category": "Herbal",
+    "price": 28,
+    "rating": 4.8,
+    "availableStock": 9,
+    "careLevel": "Medium",
+    "description": "A fragrant herb known for its calming aroma and purple blooms.",
+    "image": "https://i.ibb.co.com/YB0xYph1/tuan-nguy-n-minh-p-Gr7g4l8-EOI-unsplash.jpg",
+    "providerName": "Bloom Valley Garden"
   }
 ]
