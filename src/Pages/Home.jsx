@@ -28,27 +28,6 @@ export default function Home() {
 
   // Expert Json fetching from here
 
-  // const experts = [
-  //   {
-  //     name: "David Gomej",
-  //     specialty: "Succulents",
-  //     image:
-  //       "https://i.ibb.co.com/1HXZ96c/premium-photo-1672239496290-5061cfee7ebb.jpg",
-  //   },
-  //   {
-  //     name: "Rafi Ahmed",
-  //     specialty: "Foliage Care",
-  //     image:
-  //       "https://i.ibb.co.com/tPQZ7Rch/istockphoto-146879255-1024x1024.jpg",
-  //   },
-  //   {
-  //     name: "Jonathan Rocky",
-  //     specialty: "Decor & Styling",
-  //     image:
-  //       "https://i.ibb.co.com/mV5YB1V8/photo-1519058082700-08a0b56da9b4.jpg",
-  //   },
-  // ];
-
   const experts = [
     {
       name: "David Gomej",
@@ -301,21 +280,6 @@ export default function Home() {
       </motion.section>
 
       {/* ================= PLANT OF THE WEEK ================= */}
-      {/* <motion.section
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="p-6 bg-green-50 rounded-2xl shadow text-center mt-[60px]"
-      >
-        <h3 className="font-semibold text-2xl text-green-700 mb-2">
-          🌼 Plant of the Week: Monstera Deliciosa
-        </h3>
-        <p className="text-slate-600 text-sm">
-          A trending statement plant — thrives with bright indirect light and
-          moderate watering. Perfect for new plant parents!
-        </p>
-      </motion.section> */}
 
       <motion.section
         initial={{ opacity: 0, y: 50 }}
