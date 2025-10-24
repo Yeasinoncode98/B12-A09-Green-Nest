@@ -94,7 +94,7 @@ export default function MyProfile() {
                 <h2 className="font-bold text-3xl text-white mb-2 tracking-tight">
                   My Profile
                 </h2>
-                <p className=" font-semibold text-black text-sm">
+                <p className="font-semibold text-black text-sm">
                   Manage your personal information
                 </p>
               </div>
@@ -107,57 +107,53 @@ export default function MyProfile() {
             </div>
           </div>
 
-          {/* Profile Avatar Section */}
-          <div className="relative px-8 -mt-16 mb-6">
-            <div className="flex items-end gap-6">
-              {/* Avatar */}
-              <div className="relative group">
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-3xl blur-xl transition-all duration-500 ${
-                    isHovered ? "opacity-100 scale-110" : "opacity-60 scale-100"
+          {/* Profile Avatar & Info Section */}
+          <div className="relative px-8 -mt-16 mb-6 flex flex-col md:flex-row items-center md:items-end gap-6">
+            {/* Avatar */}
+            <div className="relative group order-1 md:order-1">
+              <div
+                className={`absolute inset-0 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-3xl blur-xl transition-all duration-500 ${
+                  isHovered ? "opacity-100 scale-110" : "opacity-60 scale-100"
+                }`}
+              />
+              <div className="relative w-32 h-32 rounded-3xl overflow-hidden border-4 border-white shadow-2xl transition-transform duration-500 hover:scale-105">
+                <img
+                  src={
+                    user?.photoURL ||
+                    "https://i.postimg.cc/3x4X0QmY/snake-plant.png"
+                  }
+                  alt="Profile"
+                  className={`w-full h-full object-cover transition-all duration-500 ${
+                    imageLoaded ? "opacity-100 scale-100" : "opacity-0 scale-95"
                   }`}
+                  onLoad={() => setImageLoaded(true)}
                 />
-                <div className="relative w-32 h-32 rounded-3xl overflow-hidden border-4 border-white shadow-2xl transition-transform duration-500 hover:scale-105">
-                  <img
-                    src={
-                      user?.photoURL ||
-                      "https://i.postimg.cc/3x4X0QmY/snake-plant.png"
-                    }
-                    alt="Profile"
-                    className={`w-full h-full object-cover transition-all duration-500 ${
-                      imageLoaded
-                        ? "opacity-100 scale-100"
-                        : "opacity-0 scale-95"
-                    }`}
-                    onLoad={() => setImageLoaded(true)}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-2">
-                    <span className="text-white text-xs font-medium">
-                      Change Photo
-                    </span>
-                  </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-2">
+                  <span className="text-white text-xs font-medium">
+                    Change Photo
+                  </span>
                 </div>
               </div>
+            </div>
 
-              {/* User Info */}
-              <div className="flex-1 pb-2">
-                <h3 className="text-2xl font-bold text-gray-800 mb-1">
-                  {user?.displayName || "No name set"}
-                </h3>
+            {/* User Info */}
+            <div className="flex-1 flex flex-col items-center md:items-start order-2 md:order-2 mt-4 md:mt-0 text-center md:text-left">
+              <h3 className="text-2xl font-bold text-gray-800 mb-1">
+                {user?.displayName || "No name set"}
+              </h3>
 
-                <p className="text-gray-700 font-semibold text-sm flex items-center gap-2 mt-">
-                  <span className="inline-block w-1.5 h-1.5 bg-blue-500 rounded-full" />
-                  <span className="text-blue-700 ">{user?.email}</span>
-                </p>
+              <p className="text-gray-700 font-semibold text-sm flex items-center gap-2 mt-1">
+                <span className="inline-block w-1.5 h-1.5 bg-blue-500 rounded-full" />
+                <span className="text-blue-700">{user?.email}</span>
+              </p>
 
-                <div className="flex gap-2 mt-3">
-                  <span className="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs font-medium">
-                    Active
-                  </span>
-                  <span className="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs font-medium">
-                    Verified
-                  </span>
-                </div>
+              <div className="flex gap-2 mt-3">
+                <span className="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs font-medium">
+                  Active
+                </span>
+                <span className="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs font-medium">
+                  Verified
+                </span>
               </div>
             </div>
           </div>
