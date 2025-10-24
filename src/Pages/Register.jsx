@@ -1,133 +1,10 @@
-// // src/Pages/Register.jsx
-// import React, { useContext, useState } from "react";
-// import { useNavigate, Link } from "react-router-dom";
-// import { AuthContext } from "../context/AuthContext";
-// import { toast } from "react-toastify";
-
-// const Register = () => {
-//   const { register, loginWithGoogle } = useContext(AuthContext);
-//   const [form, setForm] = useState({
-//     name: "",
-//     email: "",
-//     photoURL: "",
-//     password: "",
-//   });
-//   const [show, setShow] = useState(false);
-//   const navigate = useNavigate();
-
-//   const validatePassword = (pw) => {
-//     const hasUpper = /[A-Z]/.test(pw);
-//     const hasLower = /[a-z]/.test(pw);
-//     return pw.length >= 6 && hasUpper && hasLower;
-//   };
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     if (!validatePassword(form.password)) {
-//       return toast.error(
-//         "Password must have uppercase, lowercase and be at least 6 characters."
-//       );
-//     }
-
-//     try {
-//       await register(
-//         form.email,
-//         form.password,
-//         form.name || undefined,
-//         form.photoURL || undefined
-//       );
-//       toast.success("Registration successful");
-//       navigate("/");
-//     } catch (err) {
-//       toast.error(err.message);
-//     }
-//   };
-
-//   const handleGoogle = async () => {
-//     try {
-//       await loginWithGoogle();
-//       toast.success("Signed in with Google");
-//       navigate("/");
-//     } catch (err) {
-//       toast.error(err.message);
-//     }
-//   };
-
-//   return (
-//     <div className="container mx-auto p-6 max-w-md">
-//       <h2 className="text-2xl font-semibold mb-4">Sign Up</h2>
-//       <form onSubmit={handleSubmit} className="space-y-4">
-//         <input
-//           required
-//           value={form.name}
-//           onChange={(e) => setForm({ ...form, name: e.target.value })}
-//           placeholder="Name"
-//           className="input input-bordered w-full"
-//         />
-//         <input
-//           required
-//           value={form.email}
-//           onChange={(e) => setForm({ ...form, email: e.target.value })}
-//           type="email"
-//           placeholder="Email"
-//           className="input input-bordered w-full"
-//         />
-//         <input
-//           value={form.photoURL}
-//           onChange={(e) => setForm({ ...form, photoURL: e.target.value })}
-//           placeholder="Photo URL (optional)"
-//           className="input input-bordered w-full"
-//         />
-//         <div>
-//           <input
-//             required
-//             value={form.password}
-//             onChange={(e) => setForm({ ...form, password: e.target.value })}
-//             type={show ? "text" : "password"}
-//             placeholder="Password"
-//             className="input input-bordered w-full"
-//           />
-//           <label className="label">
-//             <span
-//               className="label-text-alt cursor-pointer"
-//               onClick={() => setShow(!show)}
-//             >
-//               {show ? "Hide" : "Show"} password
-//             </span>
-//           </label>
-//         </div>
-
-//         <p className="text-xs text-gray-500">
-//           Password must have uppercase, lowercase and at least 6 characters.
-//         </p>
-
-//         <button type="submit" className="btn btn-primary w-full">
-//           Register
-//         </button>
-//       </form>
-
-//       <div className="divider">OR</div>
-
-//       <button onClick={handleGoogle} className="btn btn-outline w-full">
-//         Continue with Google
-//       </button>
-
-//       <p className="mt-4 text-sm">
-//         Already have an account?{" "}
-//         <Link to="/login" className="text-green-600">
-//           Login
-//         </Link>
-//       </p>
-//     </div>
-//   );
-// };
-
-// export default Register;
+//fixing toggle
 
 import React, { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export default function Register() {
   const { register, loginWithGoogle } = useAuth();
@@ -207,9 +84,9 @@ export default function Register() {
           <button
             type="button"
             onClick={() => setShowPass((s) => !s)}
-            className="absolute right-2 top-2 text-sm"
+            className="absolute right-2 top-2 text-lg text-gray-600"
           >
-            {showPass ? "Hide" : "Show"}
+            {showPass ? <FaEyeSlash /> : <FaEye />}
           </button>
         </div>
         <button className="btn btn-primary w-full">Register</button>
