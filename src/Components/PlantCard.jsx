@@ -42,7 +42,7 @@ export default function PlantCard({ plant }) {
             to={`/plants/${plant.plantId}`}
             className="btn bg-green-500 hover:bg-green-600 border-none text-white transition-all duration-300 rounded-full px-5"
           >
-            Details →
+            View Details →
           </Link>
         </div>
       </div>
