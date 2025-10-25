@@ -12,8 +12,8 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-10 grid md:grid-cols-5 gap-8 text-center md:text-left">
         {/* Brand */}
         <div className="flex flex-col items-center md:items-start">
-          <h3 className="font-bold text-2xl text-green-700 mb-2">GreenNest</h3>
-          <p className="text-sm text-green-900/70">
+          <h3 className="font-bold text-2xl text-black mb-2">GreenNest</h3>
+          <p className="text-sm text-black/80">
             Bring nature home with care and style. Explore our plants and make
             your space vibrant.
           </p>
@@ -21,8 +21,8 @@ export default function Footer() {
 
         {/* Quick Links */}
         <div className="flex flex-col items-center md:items-start">
-          <h4 className="font-semibold text-green-700 mb-2">Quick Links</h4>
-          <ul className="space-y-2 text-green-900/80">
+          <h4 className="font-semibold text-black mb-2">Quick Links</h4>
+          <ul className="space-y-2 text-black/80">
             <li>
               <a
                 href="https://mohonsharif.com/yeasinarafat-portfolio"
@@ -58,8 +58,8 @@ export default function Footer() {
 
         {/* Services */}
         <div className="flex flex-col items-center md:items-start">
-          <h4 className="font-semibold text-green-700 mb-2">Services</h4>
-          <ul className="space-y-2 text-green-900/80">
+          <h4 className="font-semibold text-black mb-2">Services</h4>
+          <ul className="space-y-2 text-black/80">
             <li className="hover:text-green-600 transition-colors cursor-pointer">
               Branding
             </li>
@@ -74,8 +74,8 @@ export default function Footer() {
 
         {/* Follow Us */}
         <div className="flex flex-col items-center md:items-start">
-          <h4 className="font-semibold text-green-700 mb-2">Follow Us</h4>
-          <div className="flex gap-4 mt-2 justify-center md:justify-start text-green-700">
+          <h4 className="font-semibold text-black mb-2">Follow Us</h4>
+          <div className="flex gap-4 mt-2 justify-center md:justify-start text-black">
             <a
               href="https://www.instagram.com/sickfly_02z?igsh=cXY2aHp0bDVma2Nj&utm_source=qr"
               target="_blank"
@@ -114,22 +114,22 @@ export default function Footer() {
         {/* Newsletter */}
         <div className="flex flex-col items-center md:items-start">
           <form className="w-full max-w-md">
-            {" "}
-            {/* increased max width */}
-            <h6 className="footer-title text-green-700 mb-2 text-lg font-semibold">
+            <h6 className="text-black mb-2 text-lg font-semibold">
               Newsletter
             </h6>
             <fieldset className="w-full">
-              <label className="text-sm text-green-900/80 mb-1 block">
+              <label className="text-sm text-black/80 mb-1 block">
                 Enter your email address
               </label>
               <div className="join mt-1 w-full flex justify-center items-center mt-5">
                 <input
                   type="email"
                   placeholder="username@site.com"
-                  className="input input-bordered join-item w-[200px]"
+                  className="input input-bordered join-item w-[200px] text-black"
                 />
-                <button className="btn btn-primary join-item">Subscribe</button>
+                <button className="btn btn-black join-item text-black bg-green-400 hover:bg-green-600 border-none">
+                  Subscribe
+                </button>
               </div>
             </fieldset>
           </form>
@@ -137,7 +137,7 @@ export default function Footer() {
       </div>
 
       {/* Copyright */}
-      <div className="text-center py-4 text-sm text-green-900/50 border-t border-green-200">
+      <div className="text-center py-4 text-sm font-bold text-black border-t border-green-200">
         © 2025 GreenNest. All rights reserved.
       </div>
     </footer>
