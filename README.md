@@ -31,20 +31,20 @@ Green Nest is an elegant and responsive platform focused on flowers and plant ca
 
 ## 📂 Project Structure
 
+##
 GreenNest/
 ├─ public/
-│ ├─ plants.json # Plant data
+│  └─ plants.json         # Plant data
 ├─ src/
-│ ├─ Components/ # Reusable UI components
-│ ├─ Context/ # Firebase authentication context
-│ ├─ Layout/ # Main layout for routes
-│ ├─ Pages/ # Individual pages (Home, Plants, PlantDetails, etc.)
-│ ├─ assets/ # Images and media
-│ └─ App.jsx # Main app component with routes
-├─ package.json # Project dependencies
-├─ tailwind.config.js # Tailwind configuration
-└─ README.md # Project documentation
-
+│  ├─ Components/         # Reusable UI components
+│  ├─ Context/            # Firebase authentication context
+│  ├─ Layout/             # Main layout for routes
+│  ├─ Pages/              # Individual pages (Home, Plants, PlantDetails, etc.)
+│  ├─ assets/             # Images and media
+│  └─ App.jsx             # Main app component with routes
+├─ package.json           # Project dependencies
+├─ tailwind.config.js     # Tailwind configuration
+└─ README.md              # Project documentation
 
 
 ---
