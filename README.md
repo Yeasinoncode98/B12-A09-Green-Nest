@@ -54,6 +54,8 @@ The development of Green Nest was guided by the following objectives:
 The project follows a standard, scalable React architecture:
 
 ##
+
+ ```
 GreenNest/
 ├─ public/
 │  └─ plants.json         # Plant data
@@ -67,6 +69,9 @@ GreenNest/
 ├─ package.json           # Project dependencies
 ├─ tailwind.config.js     # Tailwind configuration
 └─ README.md              # Project documentation
+
+```
+
 
 
 ---
