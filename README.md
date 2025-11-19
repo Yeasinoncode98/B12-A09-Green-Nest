@@ -6,7 +6,7 @@
 
 | Resource | Link |
 | :--- | :--- |
-| **Live Demo (Netlify)** | 👉 **[https://assignment-9.netlify.app/](https://assignment-9.netlify.app/)** |
+| **Live Demo (Netlify)** | 👉 **[(Netlify/](https://calm-halva-e2b0a7.netlify.app/))** |
 | **GitHub Repository** | 💻 **[Yeasinoncode98/B12-A09-Green-Nest](https://github.com/Yeasinoncode98/B12-A09-Green-Nest)** |
 | **Author** | 👤 **[Yeasinoncode98 (Yeasin Arafat)](https://github.com/Yeasinoncode98)** |
 
