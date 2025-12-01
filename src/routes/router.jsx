@@ -8,6 +8,7 @@ import MyProfile from "../Pages/MyProfile";
 import PlantDetails from "../Pages/PlantDetails";
 import ErrorPage from "../Pages/ErrorPage";
 import PrivateRoute from "../Components/PrivateRoute";
+import AboutUs from "../Pages/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -19,11 +20,7 @@ const router = createBrowserRouter([
       { path: "/plants", element: <Plants /> },
       {
         path: "/plants/:id",
-        element: (
-          <PrivateRoute>
-            <PlantDetails />
-          </PrivateRoute>
-        ),
+        element: <PlantDetails />,
       },
       {
         path: "/my-profile",
@@ -32,6 +29,10 @@ const router = createBrowserRouter([
             <MyProfile />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/about-us",
+        element: <AboutUs />,
       },
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },

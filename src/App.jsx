@@ -11,6 +11,7 @@ import ErrorPage from "./Pages/ErrorPage";
 import PrivateRoute from "./Components/PrivateRoute";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AboutUs from "./Pages/AboutUs";
 
 export default function App() {
   return (
@@ -19,14 +20,7 @@ export default function App() {
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
           <Route path="plants" element={<Plants />} />
-          <Route
-            path="plants/:id"
-            element={
-              <PrivateRoute>
-                <PlantDetails />
-              </PrivateRoute>
-            }
-          />
+          <Route path="plants/:id" element={<PlantDetails />} />
           <Route
             path="profile"
             element={
@@ -35,6 +29,7 @@ export default function App() {
               </PrivateRoute>
             }
           />
+          <Route path="about-us" element={<AboutUs />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="*" element={<ErrorPage />} />
