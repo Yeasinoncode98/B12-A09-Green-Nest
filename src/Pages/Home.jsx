@@ -59,7 +59,7 @@ export default function Home() {
     },
     {
       id: 3,
-      src: "https://images.unsplash.com/photo-1464146072230-91cabc968266?w=1200",
+      src: "https://i.postimg.cc/T1shXDvh/pexels-pixabay-158063.jpg",
       title: "Floral Elegance",
       subtitle: "Bring nature's beauty indoors",
     },
