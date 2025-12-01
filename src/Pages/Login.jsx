@@ -258,3 +258,6 @@ export default function Login() {
     </div>
   );
 }
+
+// Easy login process
+// Best way to push code the way to read the code
