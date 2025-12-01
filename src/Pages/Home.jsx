@@ -526,7 +526,7 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* ================= NEW: PROMOTIONAL/OFFER SECTION AND WORK WELL DIGITAL ================= */}
+      {/* ================= OKAY __> NEW: PROMOTIONAL/OFFER SECTION AND WORK WELL DIGITAL ================= */}
       <motion.section
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
