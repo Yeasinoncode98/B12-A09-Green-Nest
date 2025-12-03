@@ -48,7 +48,7 @@ export default function PlantDetails() {
     // Book consultation for logged-in users
     toast.success("Consultation booked! Our expert will contact you soon.");
 
-    // Clear the form after successful booking
+    // Clear the form after successful booking Good to go from here
     setForm({ name: "", email: "" });
   };
 
