@@ -11,21 +11,22 @@ import {
   User,
   Quote,
   Leaf,
+  Sparkles,
+  Heart,
 } from "lucide-react";
 
-// --- Custom Styles and Keyframes (Inline for Pure React Component) ---
+// --- Custom Styles and Keyframes ---
 const customStyles = (
   <style jsx global>{`
-    /* 1. Gentle Mission Glow (Soft Green) */
     @keyframes pulse-mission-glow-green {
       0%,
       100% {
-        box-shadow: 0 0 10px rgba(134, 239, 172, 0.5),
-          /* Green-300 */ 0 0 20px rgba(16, 185, 129, 0.2); /* Emerald-500 */
+        box-shadow: 0 0 20px rgba(134, 239, 172, 0.6),
+          0 0 40px rgba(16, 185, 129, 0.3);
       }
       50% {
-        box-shadow: 0 0 15px rgba(134, 239, 172, 0.9),
-          0 0 30px rgba(16, 185, 129, 0.5);
+        box-shadow: 0 0 30px rgba(134, 239, 172, 1),
+          0 0 60px rgba(16, 185, 129, 0.6);
       }
     }
 
@@ -33,26 +34,61 @@ const customStyles = (
       animation: pulse-mission-glow-green 4s infinite ease-in-out;
     }
 
-    /* 2. Enhanced Card Hover Effect (Green/Pink Shadow) */
+    @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    .float-animation {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes gradient-shift {
+      0%,
+      100% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+
+    .gradient-animate {
+      background-size: 200% 200%;
+      animation: gradient-shift 8s ease infinite;
+    }
+
     .service-card-hover {
       transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
+
     .service-card-hover:hover {
-      transform: translateY(-8px) scale(1.01);
-      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15),
-        0 0 20px rgba(236, 72, 153, 0.5); /* Soft pink glow */
-      border-color: #f472b6; /* Pink-400 border */
-      background-color: #f0fdf4; /* Green-50 light background */
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25),
+        0 0 30px rgba(236, 72, 153, 0.4);
     }
 
-    /* Star rating color */
     .star-rating-filled {
-      color: #facc15; /* yellow-400 */
+      color: #facc15;
+    }
+
+    .review-card {
+      transition: all 0.4s ease;
+    }
+
+    .review-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px -10px rgba(16, 185, 129, 0.3);
     }
   `}</style>
 );
 
-// --- Custom Hook for Animate On Scroll (AOS) functionality ---
+// --- Custom Hook for Animate On Scroll ---
 const useAnimateOnScroll = (threshold = 0.15) => {
   const [isVisible, setIsVisible] = useState(false);
   const domRef = useRef();
@@ -84,7 +120,7 @@ const useAnimateOnScroll = (threshold = 0.15) => {
   return [isVisible, domRef];
 };
 
-// --- Wrapper Component to apply AOS (Now uses semantic <section> tag) ---
+// --- Animated Section Wrapper ---
 const AnimatedSection = ({ children, className = "" }) => {
   const [isVisible, domRef] = useAnimateOnScroll(0.15);
   return (
@@ -110,27 +146,31 @@ const AboutUs = () => {
       description:
         "Easily reserve arrangements or services for any date with immediate confirmation.",
       color: "text-rose-500",
+      bgGradient: "from-rose-50 to-pink-50",
     },
     {
       icon: Eye,
-      title: "See Details & History",
+      title: "See Details",
       description:
-        "View high-resolution photos and detailed product specifications before ordering.",
+        "View high-resolution photos and detailed specifications before ordering.",
       color: "text-green-600",
+      bgGradient: "from-green-50 to-emerald-50",
     },
     {
       icon: Package,
-      title: "Tracked Order Delivery",
+      title: "Tracked Delivery",
       description:
-        "Real-time updates on your flower delivery, from preparation to arrival at the door.",
+        "Real-time updates from preparation to arrival at your door.",
       color: "text-blue-500",
+      bgGradient: "from-blue-50 to-cyan-50",
     },
     {
       icon: ShoppingCart,
-      title: "Effortless Ordering",
+      title: "Easy Ordering",
       description:
-        "A smooth, intuitive purchasing experience tailored for quick and thoughtful flower gifting.",
+        "A smooth, intuitive purchasing experience for thoughtful gifting.",
       color: "text-yellow-600",
+      bgGradient: "from-yellow-50 to-amber-50",
     },
   ];
 
@@ -140,29 +180,31 @@ const AboutUs = () => {
       name: "Jessica R.",
       text: "The 'Green Nest' bouquet was stunning and lasted forever! The freshness is unmatched.",
       stars: 5,
+      gradient: "from-pink-50 to-rose-50",
     },
     {
       id: 2,
       name: "David M.",
-      text: "The booking system is incredibly easy to use. Everything was handled professionally and on time.",
+      text: "The booking system is incredibly easy to use. Everything was handled professionally.",
       stars: 5,
+      gradient: "from-green-50 to-emerald-50",
     },
     {
       id: 3,
       name: "Chloe S.",
       text: "Reliable tracking and beautiful presentation. They truly bring nature's calm to my home.",
       stars: 4,
+      gradient: "from-blue-50 to-cyan-50",
     },
   ];
 
   const StarRating = ({ count }) => {
     return (
-      // FIX: Left alignment for stars
       <div className="flex justify-start space-x-0.5">
         {[...Array(5)].map((_, i) => (
           <Star
             key={i}
-            className={`w-5 h-5 ${
+            className={`w-4 h-4 ${
               i < count ? "star-rating-filled" : "text-gray-300"
             }`}
             fill={i < count ? "#facc15" : "none"}
@@ -177,47 +219,78 @@ const AboutUs = () => {
     <>
       {customStyles}
 
-      {/* Section 1: Green Nest Header/Mission (Standardized py-24 padding and max-w-7xl) */}
-      <section className="bg-green-50 text-green-950 py-24 px-4 sm:px-8 font-['Inter'] flex items-center justify-center">
-        <div className="max-w-7xl mx-auto text-center space-y-8">
-          <Flower2 className="w-16 h-16 mx-auto text-pink-500 animate-pulse" />
-          <h1 className="text-6xl font-black tracking-tight sm:text-7xl text-green-900">
-            Green Nest: Nature Delivered
+      {/* Hero Section - Reduced size */}
+      <section className="relative bg-gradient-to-br from-green-50 via-emerald-50 to-green-100 gradient-animate text-green-950 py-16 px-4 sm:px-8 font-['Inter'] overflow-hidden rounded-3xl mx-4 my-6">
+        {/* Decorative floating elements */}
+        <div className="absolute top-6 left-6 opacity-20">
+          <Flower2 className="w-16 h-16 text-pink-400 float-animation" />
+        </div>
+        <div
+          className="absolute bottom-6 right-6 opacity-20"
+          style={{ animationDelay: "2s" }}
+        >
+          <Leaf className="w-20 h-20 text-green-400 float-animation" />
+        </div>
+
+        <div className="max-w-5xl mx-auto text-center space-y-6 relative z-10">
+          <div className="inline-block">
+            <Flower2 className="w-14 h-14 mx-auto text-pink-500 animate-pulse drop-shadow-lg" />
+          </div>
+
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-green-700 via-emerald-600 to-green-800">
+            Green Nest
           </h1>
-          {/* Internal content focus div uses a smaller max-width for aesthetic centering */}
-          {/* Already uses rounded-3xl */}
-          <div className="max-w-4xl mx-auto p-8 md:p-12 rounded-3xl bg-white border-2 border-green-300 shadow-xl glow-animation-green">
-            <p className="text-2xl font-light text-gray-700">
-              We are dedicated to sourcing the most **vibrant, ethically-grown
-              flowers** and transforming them into breathtaking arrangements.
-              Green Nest is where quality meets conscious commerce, bringing the
-              serenity of a garden directly to you.
+
+          <p className="text-xl md:text-2xl font-light text-green-800">
+            Nature Delivered with Love
+          </p>
+
+          <div className="max-w-3xl mx-auto p-6 md:p-8 rounded-2xl bg-white/90 backdrop-blur-sm border-2 border-green-300 shadow-xl glow-animation-green">
+            <Sparkles className="w-8 h-8 mx-auto mb-3 text-pink-500" />
+            <p className="text-base md:text-lg font-light text-gray-700 leading-relaxed">
+              We source the most{" "}
+              <span className="font-semibold text-green-700">
+                vibrant, ethically-grown flowers
+              </span>{" "}
+              and transform them into breathtaking arrangements. Green Nest is
+              where quality meets conscious commerce.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Separator / Divider Section */}
-      <section className="bg-white px-4 sm:px-8 py-8">
-        <div className="max-w-7xl mx-auto border-t border-green-200" />
+      {/* Elegant Divider */}
+      <section className="bg-white px-4 sm:px-8 py-6">
+        <div className="max-w-5xl mx-auto flex items-center justify-center space-x-4">
+          <div className="h-px bg-gradient-to-r from-transparent via-green-300 to-transparent flex-1" />
+          <Heart className="w-5 h-5 text-pink-400" />
+          <div className="h-px bg-gradient-to-r from-transparent via-green-300 to-transparent flex-1" />
+        </div>
       </section>
 
-      {/* Section 2: Core Activities (Standardized max-w-7xl) */}
+      {/* Core Activities Section - Reduced size */}
       <section
-        className="bg-white text-green-950 py-24 px-4 sm:px-8"
+        className="bg-gradient-to-b from-white to-green-50/50 text-green-950 py-12 px-4 sm:px-8 rounded-3xl mx-4 my-6"
         ref={coreFeaturesRef}
       >
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl font-extrabold text-center mb-16 text-green-800">
-            Core Activities for a Seamless Experience
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10 space-y-2">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-700 to-emerald-600">
+              Core Activities
+            </h2>
+            <p className="text-base text-gray-600">
+              Seamless experience from browsing to delivery
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {coreActivities.map((feature, index) => (
               <div
                 key={index}
-                // Updated rounded-xl to rounded-3xl for consistent large radius
-                className={`service-card-hover bg-green-50 relative overflow-hidden p-8 rounded-3xl border border-green-300 shadow-md
-                  flex flex-col justify-start min-h-80 text-center
+                className={`service-card-hover bg-gradient-to-br ${
+                  feature.bgGradient
+                } relative overflow-hidden p-6 rounded-2xl border-2 border-white shadow-lg
+                  flex flex-col justify-start text-center
                   ${
                     coreFeaturesVisible
                       ? "opacity-100 translate-y-0"
@@ -226,94 +299,164 @@ const AboutUs = () => {
                 style={{ transitionDelay: `${(index + 1) * 150}ms` }}
               >
                 <div className="relative z-10 flex flex-col items-center">
-                  <div
-                    className={`p-4 rounded-full bg-white mb-6 border border-green-200 shadow-inner`}
-                  >
-                    <feature.icon className={`w-12 h-12 ${feature.color}`} />
+                  <div className="p-3 rounded-xl bg-white mb-4 shadow-lg ring-2 ring-white/50">
+                    <feature.icon className={`w-8 h-8 ${feature.color}`} />
                   </div>
 
-                  <h3 className="text-2xl font-extrabold text-green-900 mb-3">
+                  <h3 className="text-lg font-extrabold text-green-900 mb-2">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600">{feature.description}</p>
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    {feature.description}
+                  </p>
                 </div>
+
+                {/* Decorative corner accent */}
+                <div className="absolute top-0 right-0 w-16 h-16 bg-white/30 rounded-bl-full" />
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Section 3: Partnership Section (Standardized py-24 padding and max-w-7xl) */}
-      <AnimatedSection className="bg-green-100 text-green-950 py-24 px-4 sm:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <Handshake className="w-16 h-16 text-green-700 mx-auto mb-6" />
-          <h2 className="text-5xl font-bold text-green-900 mb-4">
-            Committed to Partnerships
-          </h2>
-          {/* Using a smaller max-w for the text block for readability */}
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-12">
-            We proudly collaborate with **sustainable farms and artisan
-            vendors** globally to ensure our supply chain is both ethical and
-            high-quality. This commitment reflects in every bloom we deliver.
-          </p>
+      {/* Partnership Section - Reduced size with rounded outer edges */}
+      <AnimatedSection className="bg-gradient-to-br from-green-50 via-emerald-50 to-green-100 gradient-animate text-green-950 py-12 px-4 sm:px-8 rounded-3xl mx-4 my-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white/90 backdrop-blur-lg p-8 md:p-10 rounded-2xl border-2 border-green-300 shadow-xl">
+            <div className="text-center space-y-4">
+              <div className="inline-block p-3 bg-gradient-to-br from-green-100 to-emerald-100 rounded-xl">
+                <Handshake className="w-12 h-12 text-green-700 animate-pulse" />
+              </div>
 
-          {/* Mock Partner Logos */}
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70">
-            <Leaf className="w-10 h-10 text-green-600" />
-            <MapPin className="w-10 h-10 text-rose-500" />
-            <Flower2 className="w-10 h-10 text-pink-500" />
-            <Star className="w-10 h-10 text-yellow-600" />
+              <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-700 to-emerald-600">
+                Committed to Partnerships
+              </h2>
+
+              <p className="text-base text-gray-700 leading-relaxed">
+                We collaborate with{" "}
+                <span className="font-semibold text-green-700">
+                  sustainable farms and artisan vendors
+                </span>{" "}
+                globally to ensure our supply chain is both ethical and
+                high-quality.
+              </p>
+            </div>
+
+            {/* Enhanced Partner Logos Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+              <div className="bg-gradient-to-br from-green-100 to-green-50 p-6 rounded-xl flex items-center justify-center shadow-md hover:shadow-xl transition-all duration-300 hover:scale-110 cursor-pointer border-2 border-green-200">
+                <Leaf className="w-10 h-10 text-green-600" />
+              </div>
+              <div className="bg-gradient-to-br from-rose-100 to-pink-50 p-6 rounded-xl flex items-center justify-center shadow-md hover:shadow-xl transition-all duration-300 hover:scale-110 cursor-pointer border-2 border-rose-200">
+                <MapPin className="w-10 h-10 text-rose-500" />
+              </div>
+              <div className="bg-gradient-to-br from-pink-100 to-rose-50 p-6 rounded-xl flex items-center justify-center shadow-md hover:shadow-xl transition-all duration-300 hover:scale-110 cursor-pointer border-2 border-pink-200">
+                <Flower2 className="w-10 h-10 text-pink-500" />
+              </div>
+              <div className="bg-gradient-to-br from-yellow-100 to-amber-50 p-6 rounded-xl flex items-center justify-center shadow-md hover:shadow-xl transition-all duration-300 hover:scale-110 cursor-pointer border-2 border-yellow-200">
+                <Star className="w-10 h-10 text-yellow-600" />
+              </div>
+            </div>
           </div>
         </div>
       </AnimatedSection>
 
-      {/* Section 4: Review Cards (Standardized max-w-7xl) */}
-      <section className="bg-white text-green-950 py-24 px-4 sm:px-8">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl font-extrabold text-center mb-16 text-green-800">
-            Customer Love: Our Review Cards
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* Review Cards Section - Reduced size with rounded outer edges */}
+      <section className="bg-white text-green-950 py-12 px-4 sm:px-8 rounded-3xl mx-4 my-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10 space-y-2">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-700 to-emerald-600">
+              Customer Love
+            </h2>
+            <p className="text-base text-gray-600">
+              Hear what our happy customers say
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {reviews.map((review) => (
               <AnimatedSection
                 key={review.id}
-                // Updated rounded-xl to rounded-3xl for consistent large radius
-                className="bg-green-50 p-8 rounded-3xl shadow-lg border border-green-200 space-y-4 text-left"
+                className={`review-card bg-gradient-to-br ${review.gradient} p-6 rounded-2xl shadow-lg border-2 border-white space-y-4 text-left`}
               >
-                <Quote className="w-8 h-8 text-green-600" />
-                <p className="text-lg italic text-gray-700">"{review.text}"</p>
-                <StarRating count={review.stars} />
-                <p className="font-semibold text-green-900 pt-2">
-                  — {review.name}
+                <div className="flex items-start justify-between">
+                  <Quote className="w-7 h-7 text-green-600 opacity-60" />
+                  <StarRating count={review.stars} />
+                </div>
+
+                <p className="text-sm italic text-gray-800 leading-relaxed">
+                  "{review.text}"
                 </p>
+
+                <div className="pt-3 border-t border-green-200">
+                  <p className="font-bold text-green-900 text-base">
+                    {review.name}
+                  </p>
+                  <p className="text-xs text-gray-600">Verified Customer</p>
+                </div>
               </AnimatedSection>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Section 5: Dedicated Seller CTA (Standardized py-24 padding) */}
-      <AnimatedSection className="bg-green-800 text-white py-24 px-4 sm:px-8">
-        {/* The CTA has a smaller max-width (4xl) for visual emphasis, which is correct for a centered element. */}
-        <div className="max-w-4xl mx-auto text-center">
-          <User className="w-16 h-16 text-green-300 mx-auto mb-6 animate-pulse" />
-          <h2 className="text-5xl font-bold mb-4">
-            Your Dedicated Flower Seller
-          </h2>
-          <p className="text-xl text-green-200 mb-10">
-            Every customer is paired with a dedicated floral expert to ensure
-            personalized service, from custom design requests to urgent delivery
-            needs. We're here to help you bloom.
-          </p>
-          <button
-            className="px-10 py-4 text-xl font-bold text-green-900 bg-green-300 rounded-full shadow-lg shadow-green-500/50
-                       hover:bg-green-200 transform hover:scale-105 transition-all duration-300 ring-4 ring-green-400/50"
-            onClick={() => console.log("CTA clicked: Contact Specialist")}
+      {/* Dedicated Seller CTA - Reduced size with rounded outer edges */}
+      <AnimatedSection className="relative bg-gradient-to-br from-green-700 via-emerald-700 to-green-800 gradient-animate text-white py-12 px-4 sm:px-8 overflow-hidden rounded-3xl mx-4 my-6">
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-0 w-full h-full opacity-10">
+          <div className="absolute top-10 left-10">
+            <Flower2 className="w-20 h-20 text-white float-animation" />
+          </div>
+          <div
+            className="absolute bottom-10 right-10"
+            style={{ animationDelay: "3s" }}
           >
-            Contact a Floral Specialist Today
-          </button>
+            <Sparkles className="w-24 h-24 text-white float-animation" />
+          </div>
+        </div>
+
+        <div className="max-w-4xl mx-auto relative z-10">
+          <div className="bg-white/10 backdrop-blur-md p-8 md:p-10 rounded-2xl border-2 border-white/30 shadow-xl text-center space-y-6">
+            <div className="inline-block p-4 bg-white/20 rounded-xl backdrop-blur-sm">
+              <User className="w-12 h-12 text-green-200 animate-pulse" />
+            </div>
+
+            <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+              Your Dedicated Flower Seller
+            </h2>
+
+            <p className="text-base md:text-lg text-green-100 leading-relaxed">
+              Every customer is paired with a dedicated floral expert to ensure
+              personalized service, from custom design requests to urgent
+              delivery needs.
+            </p>
+
+            <div className="pt-2">
+              <button
+                className="group px-8 py-3 text-base font-bold text-green-900 bg-white rounded-full shadow-xl
+                           hover:bg-green-50 transform hover:scale-105 transition-all duration-300 
+                           ring-4 ring-white/30 hover:ring-white/50"
+                onClick={() => console.log("CTA clicked: Contact Specialist")}
+              >
+                <span className="flex items-center justify-center space-x-2">
+                  <span>Contact a Floral Specialist</span>
+                  <Heart className="w-5 h-5 group-hover:fill-pink-500 group-hover:text-pink-500 transition-all" />
+                </span>
+              </button>
+            </div>
+          </div>
         </div>
       </AnimatedSection>
+
+      {/* Footer accent */}
+      <section className="bg-gradient-to-b from-green-800 to-green-900 py-8 px-4 sm:px-8 rounded-3xl mx-4 my-6">
+        <div className="max-w-5xl mx-auto text-center">
+          <Flower2 className="w-10 h-10 mx-auto text-pink-400 opacity-60" />
+          <p className="text-green-200 mt-3 text-sm">
+            Green Nest • Where Nature Meets Nurture
+          </p>
+        </div>
+      </section>
     </>
   );
 };
